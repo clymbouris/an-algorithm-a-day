@@ -1,2 +1,44 @@
 # freeCodeCamp bonfires
 
+/*
+Bonfire: Check for Palindromes
+Return true if the given string is a palindrome. Otherwise, return false.
+
+A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.
+
+You'll need to remove punctuation and turn everything lower case in order to check for palindromes.
+
+We'll pass strings with varying formats, such as "racecar", "RaceCar", and "race CAR" among others.
+*/
+
+function palindrome(str) {
+ 	var noPunc = removePunc(str).toLowerCase(), input = noPunc.split(''), len = input.length, i;
+  	for (i = 0; i < len; i++) {
+  		// if there's an odd middle then it equals itself
+  		if(!(input[i] === input[len - 1 - i])) {
+  			return false;
+  		}
+  	}
+  	return true;
+}
+
+function removePunc(str) {
+	var punctuations = ['.', '?', '!', ':', ';', '-', '_', '(', ')', '/', '\\', ' ', ',', '\'', '"', '}', '{', '#', '^', '`', '~'],
+	    len = str.length, result = [], i;
+  	for(i = 0; i < len; i++) {
+  		var j, hasPunct;
+  		for (j = 0; j < punctuations.length; j++) {
+  			if (str[i] === punctuations[j]) {
+  				hasPunct = true;
+  				break;
+  			}
+  			else {
+  				hasPunct = false;
+  			}
+  		}
+  		if(!hasPunct) {
+  			result.push(str[i]);
+  		}
+  	}
+  	return result.join('');
+}
