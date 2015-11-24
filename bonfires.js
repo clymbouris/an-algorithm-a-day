@@ -1,4 +1,19 @@
 # freeCodeCamp bonfires
+/*
+Bonfire: Find the Longest Word in a String
+Return the length of the longest word in the provided sentence.
+
+Your response should be a number.
+*/
+
+function findLongestWord(str) {
+	var words = str.split(' ');
+	return words.reduce(function(a, b) {
+		return (a.length > b.length) ? a : b;
+	}).length;
+}
+
+findLongestWord("The quick brown fox jumped over the lazy dog");
 
 /*
 Bonfire: Check for Palindromes
