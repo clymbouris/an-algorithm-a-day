@@ -1,4 +1,25 @@
-# freeCodeCamp bonfires
+/* # freeCodeCamp bonfires */
+
+/*
+Bonfire: Confirm the Ending
+Check if a string (first argument) ends with the given target string (second argument).
+
+notes:
+substr(start, [length])
+The start is the index to start. It can be negative like -1 up to -String.length.
+The length argument only counts forward so substr(-1, 100) will just produce 1 character
+*/
+
+function end(str, target) {
+  // "Never give up and good luck will find you."
+  // -- Falcor
+  var tail = str.substr(-target.length, target.length);
+  return (target === tail) ? true : false;
+}
+
+end("Bastian", "n");
+
+
 /*
 Bonfire: Return Largest Numbers in Arrays
 Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
