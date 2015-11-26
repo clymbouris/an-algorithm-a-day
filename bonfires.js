@@ -1,5 +1,37 @@
 /* # freeCodeCamp bonfires */
 
+
+/*
+Bonfire: Truncate a string
+Truncate a string (first argument) if it is longer than the given maximum string length (second argument). 
+Return the truncated string with a "..." ending.
+
+Note that the three dots at the end add to the string length.
+
+If the length of the string is less than or equal to 3 characters,
+then the length of the three dots is not added to the string length.
+*/
+
+function truncate(str, num) {
+	var append = "...", result = "";
+	if (num >= str.length) {
+		return str;
+	}
+	else if (num <= 3) {
+		result = str.slice(0, num) + append;
+	}
+	else if (str.length >= num) {
+		result = str.slice(0, num);
+		result = result.slice(0, -append.length) + append;
+	}
+	return result;
+}
+
+truncate("A-tisket a-tasket A green and yellow basket", 11);
+
+
+
+
 /*
 Bonfire: Repeat a string repeat a string
 Repeat a given string (first argument) n times (second argument). 
