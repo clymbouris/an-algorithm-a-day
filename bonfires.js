@@ -1,6 +1,26 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Repeat a string repeat a string
+Repeat a given string (first argument) n times (second argument). 
+
+Return an empty string if n is a negative number.
+
+*/
+
+function repeat(str, num) {
+  // repeat after me
+  var i, result = "";
+  for (i = 0; i < num; i++) {
+  	result += str;
+  }
+  return result;
+}
+
+repeat("abc", 3);
+
+
+/*
 Bonfire: Confirm the Ending
 Check if a string (first argument) ends with the given target string (second argument).
 
