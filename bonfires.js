@@ -1,5 +1,21 @@
 /* # freeCodeCamp bonfires */
 
+/*
+Bonfire: Chunky Monkey
+Write a function that splits an array (first argument) 
+into groups the length of size (second argument) 
+and returns them as a multidimensional array.
+*/
+
+function chunk(arr, size) {
+  var len = Math.ceil(arr.length / size), result = [], i;
+  for (i = 0; i < len; i++) {
+  	result.push(arr.splice(0, size));
+  }
+  return result;
+}
+
+chunk(["a", "b", "c", "d"], 2);
 
 /*
 Bonfire: Truncate a string
