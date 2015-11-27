@@ -1,6 +1,24 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Falsy Bouncer
+Remove all falsy values from an array.
+
+Falsy values in javascript are false, null, 0, "", undefined, and NaN.
+*/
+
+function bouncer(arr) {
+  // Don't show a false ID to this bouncer.
+  arr = arr.filter(function(val) {
+  	return (val);
+  });
+  return arr;
+}
+
+bouncer([7, "ate", "", false, 9]);
+
+
+/*
 Bonfire: Mutations
 Return true if the string in the first element of the array contains all of the letters of the string 
 in the second element of the array.
