@@ -1,6 +1,30 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Sum All Numbers in a Range
+We'll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them.
+
+The lowest number will not always come first.
+*/
+
+function sumAll(arr) {
+  arr = arr || [0];
+  var boundaries = function(action) {
+	return arr.reduce(function(a, b) {
+		return action(a, b);
+	});
+  };
+  var min = boundaries(Math.min), max = boundaries(Math.max), result = 0, i;
+
+  for (i = min; i <= max; i++) {
+	result = result + i;
+  }
+  return result;
+}
+
+sumAll([1, 4]);
+
+/*
 Bonfire: Where do I belong
 Return the lowest index at which a value (second argument) should be inserted into an array (first argument)
 once it has been sorted.
