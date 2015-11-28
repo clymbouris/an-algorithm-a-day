@@ -1,6 +1,22 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Diff Two Arrays
+Compare two arrays and return a new array with any items only found in one of the original arrays.
+*/
+
+function diff(arr1, arr2) {
+	if (arguments.length === 0) return [];
+	var arr = arr1.concat(arr2);
+	var result = arr.filter(function(elem) {
+		return arr1.indexOf(elem) === -1 || arr2.indexOf(elem) === -1;
+	});
+	return result;
+}
+
+diff([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+
+/*
 Bonfire: Sum All Numbers in a Range
 We'll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them.
 
