@@ -1,6 +1,36 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Pig Latin
+Translate the provided string to pig latin.
+
+Pig Latin takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an "ay".
+
+If a word begins with a vowel you just add "way" to the end.
+*/
+
+
+// TODO: make it work with consonant clusters (only works for first letter consonant)
+function translate(str) {
+	var vowels = ["a", "e", "i", "o", "u"];
+	var first = str[0], isFirstVowel = false;
+	vowels.forEach(function(vowel) {
+		if (first === vowel || first === vowel.toUpperCase()) {
+			isFirstVowel = true;
+		}
+	});
+	if(isFirstVowel) {
+		str = str + "way";
+	}
+	else {
+		str = str.substr(1) + first + "ay";
+	}
+	return str;
+}
+
+translate("algorithm");
+
+/*
 Bonfire: Search and Replace
 Perform a search and replace on the sentence using the arguments provided and return the new sentence.
 
