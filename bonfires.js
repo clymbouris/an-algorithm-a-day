@@ -12,20 +12,27 @@ If a word begins with a vowel you just add "way" to the end.
 
 // TODO: make it work with consonant clusters (only works for first letter consonant)
 function translate(str) {
-	var vowels = ["a", "e", "i", "o", "u"];
-	var first = str[0], isFirstVowel = false;
-	vowels.forEach(function(vowel) {
-		if (first === vowel || first === vowel.toUpperCase()) {
-			isFirstVowel = true;
+	function isConsonant(character) {
+		var consonants = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "X", "Z", "W", "Y"];
+		var i;
+		for (i = 0; i < consonants.length; i++) {
+			if (character === consonants[i] || character === consonants[i].toLowerCase()) {
+				return true;
+			}
 		}
-	});
-	if(isFirstVowel) {
-		str = str + "way";
+		return false;
 	}
-	else {
-		str = str.substr(1) + first + "ay";
+	var consoCount = 0, character, i;
+	for (i = 0; i < str.length; i++) {
+		character = str[i];
+		if (isConsonant(character)) {
+			consoCount++;
+		}
+		else {
+			break;
+		}
 	}
-	return str;
+	return (consoCount === 0) ? str + "way" : str.substr(consoCount) + str.slice(0, consoCount) + "ay";
 }
 
 translate("algorithm");
