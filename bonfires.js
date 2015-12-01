@@ -1,6 +1,35 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Missing letters
+Find the missing letter in the passed letter range and return it.
+
+If all letters are present in the range, return undefined.
+
+notes:
+Unicode table for English characters
+http://www.ibm.com/developerworks/library/l-u-cyr/table4.jpg
+
+*/
+
+function fearNotLetter(str) {
+	var unicode = [], len = str.length, i;
+	for (i = 0; i < len; i++) {
+		unicode.push(str.charCodeAt(i));
+	}
+	var result, j;
+	for (j = 1; j < len; j++) {
+		if (unicode[j] - unicode[j-1] !== 1) {
+			result = String.fromCharCode(unicode[j] - 1);
+			return result;
+		}
+	}
+	return result;
+}
+
+fearNotLetter("abce");
+
+/*
 Bonfire: DNA Pairing
 The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.
 
