@@ -1,6 +1,36 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: DNA Pairing
+The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.
+
+Base pairs are a pair of AT and CG. Match the missing element to the provided character.
+
+Return the provided character as the first element in each array.
+
+For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]]
+
+The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
+*/
+
+function pair(str) {
+	var pairs = { "A": "T", "T": "A", "C": "G", "G": "C" },
+	strArr = str.split(''), result = [], i;
+	for (i = 0; i < strArr.length; i++) {
+		var key;
+		for (key in pairs) {
+			if (key === strArr[i]) {
+				result.push([strArr[i], pairs[key]]);
+				break;
+			}
+		}
+	}
+	return result;
+}
+
+pair("GCG");
+
+/*
 Bonfire: Pig Latin
 Translate the provided string to pig latin.
 
@@ -9,8 +39,6 @@ Pig Latin takes the first consonant (or consonant cluster) of an English word, m
 If a word begins with a vowel you just add "way" to the end.
 */
 
-
-// TODO: make it work with consonant clusters (only works for first letter consonant)
 function translate(str) {
 	function isConsonant(character) {
 		var consonants = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "X", "Z", "W", "Y"];
