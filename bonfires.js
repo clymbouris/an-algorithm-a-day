@@ -1,6 +1,30 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Spinal Tap Case
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+*/
+
+function spinalCase(str) {
+	var result = str[0], len = str.length, i;
+	for (i = 1; i < len; i++) {
+		if (str[i].charCodeAt() === 32 || str[i].charCodeAt() === 95) {
+			result = result + ' ';
+		}
+		else if (str[i] === str[i].toUpperCase() && result[i-1].charCodeAt() !== 32 && str[i].charCodeAt() !== 45) {
+			result = result + ' ' + str[i];
+		}
+		else {
+			result = result + str[i];
+		}
+	}
+	return result.replace(/\s/g, '-').toLowerCase();
+}
+
+spinalCase("This Is Spinal Tap");
+spinalCase("thisIsSpinalTap");
+
+/*
 Bonfire: Convert HTML Entities
 Convert the characters...
 & < > ' "
