@@ -1,6 +1,27 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Convert HTML Entities
+Convert the characters...
+& < > ' "
+...in a string to their corresponding HTML entities.
+
+notes:
+http://dev.w3.org/html5/html-author/charref
+*/
+
+function convert(str) {
+	var map = { "&amp;": /&/g, "&lt;": /</g, "&gt;": />/g, '&quot;': /"/g, "&apos;": /'/g },
+	key;
+	for (key in map) {
+		str = str.replace(map[key], key);
+	}
+	return str;
+}
+
+convert("Dolce & Gabbana");
+
+/*
 Bonfire: Sorted Union
 Write a function that takes two or more arrays and returns a new array of unique values
 in the order of the original provided arrays.
