@@ -1,10 +1,36 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Drop it
+Drop the elements of an array (first argument), starting from the front,
+until the predicate (second argument) returns true.
+
+Remember to use Read-Search-Ask if you get stuck. Try to pair program. Write your own code.
+*/
+
+function drop(arr, func) {
+	var shifts = 0, i;
+	for (i = 0; i < arr.length; i++) {
+		if(!func(arr[i])) shifts++;
+		else break;
+	}
+	var j;
+	for (j = 0; j < shifts; j++) arr.shift();
+	return arr;
+}
+
+drop([1, 2, 3, 9, 2], function(n) {
+	return n > 2;
+});
+
+drop([1, 2, 3, 4], function(n) {
+	return n > 5;
+});
+
+/*
 Bonfire: Finders Keepers
 Create a function that looks through an array (first argument) and returns the first element
 in the array that passes a truth test (second argument).
-
 */
 
 function find(arr, func) {
