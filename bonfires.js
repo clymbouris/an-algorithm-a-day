@@ -1,11 +1,31 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Steamroller
+Flatten a nested array. You must account for varying levels of nesting.
+*/
+
+function steamroller(arr) {
+	var result = [], len = arr.length, i;
+	for (i = 0; i < len; i++) {
+		if (Array.isArray(arr[i])) {
+			// Recursion
+			result = result.concat(steamroller(arr[i]));
+		}
+		else {
+			result.push(arr[i]);
+		}
+	}
+	return result;
+}
+
+steamroller([1, [2], [3, [[4]]]]);
+
+/*
 Bonfire: Drop it
 Drop the elements of an array (first argument), starting from the front,
 until the predicate (second argument) returns true.
 
-Remember to use Read-Search-Ask if you get stuck. Try to pair program. Write your own code.
 */
 
 function drop(arr, func) {
