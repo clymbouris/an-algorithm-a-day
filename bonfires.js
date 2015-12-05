@@ -1,6 +1,36 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Arguments Optional
+Create a function that sums two arguments together. If only one argument is provided,
+then return a function that expects one argument and returns the sum.
+
+For example, add(2, 3) should return 5, and add
+(2) should return a function.
+
+Calling this returned function with a single argument will then return the sum:
+
+var sumTwoAnd = add(2);
+
+sumTwoAnd(3) returns 5.
+
+If either argument isn't a valid number, return undefined.
+*/
+
+function add() {
+	var x = arguments[0], y = arguments[1];
+	if (typeof x === 'number' && typeof y === 'number') {
+		return x + y;
+	}
+	else if (typeof x === 'number' && typeof y === 'undefined') {
+		return function(z) {
+			return (typeof z === 'number') ? x + z : undefined;
+		};
+	}
+	else return undefined;
+}
+
+/*
 Bonfire: Everything Be True
 Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
 */
