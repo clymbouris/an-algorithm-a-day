@@ -1,6 +1,23 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Everything Be True
+Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
+*/
+
+function every(collection, pre) {
+	var len = collection.length, i;
+	for (i = 0; i < len; i++) {
+		if (!collection[i][pre]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+every([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+
+/*
 Bonfire: Binary Agents
 Return an English translated sentence of the passed binary string.
 
