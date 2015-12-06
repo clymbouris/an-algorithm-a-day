@@ -1,6 +1,46 @@
 /* # freeCodeCamp bonfires */
 
 /*
+Bonfire: Smallest Common Multiple
+Find the smallest common multiple of the provided parameters that can be evenly divided by both,
+as well as by all sequential numbers in the range between these parameters.
+
+The range will be an array of two numbers that will not necessarily be in numerical order.
+
+e.g. for 1 and 3 - find the smallest common multiple of both 1 and 3 that is evenly divisible by all numbers between 1 and 3.
+*/
+
+function smallestCommons(arr) {
+	// sort array from smallest to largest
+	arr.sort(function(a, b) {
+		return a - b;
+	});
+	// fill in the numbers between
+	var start = arr[0], end = arr[1], allNumbers = [], i;
+	for (i = start; i <= end; i++) {
+		allNumbers.push(i);
+	}
+	// test if multiple of largest number is evenly divided by all numbers in range
+	var len = allNumbers.length, largest = allNumbers[allNumbers.length - 1], smallestCommon = 0, found = false;
+	while (!found) {
+		smallestCommon =  smallestCommon + largest;
+		var j;
+		for (j = 0; j < len; j++) {
+			if (smallestCommon / allNumbers[j] !== parseInt(smallestCommon / allNumbers[j])) {
+				found = false;
+				break;
+			}
+			else {
+				found = true;
+			}
+		}
+	}
+	return smallestCommon;
+}
+
+smallestCommons([1,5]); // should return 60
+
+/*
 Bonfire: Arguments Optional
 Create a function that sums two arguments together. If only one argument is provided,
 then return a function that expects one argument and returns the sum.
