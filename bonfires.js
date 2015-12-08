@@ -1,29 +1,3 @@
-/* # Algorithm Exercises in JavaScript */
-
-/*
-Width-Height Ratio
-
-We all use 16:9, 16:10, 4:3 etc. ratios every day. Main task is to determine image ratio by its width and height dimensions.
-
-Function should take width and height of an image and return a ratio string (ex."16:9").
-If any of width or height entry is 0 function should throw an exception (or return Nothing).
-*/
-
-function calculateRatio(w, h) {
-	if (!w || !h) {
-		return undefined;
-	}  
-	var width, divisor = 0;
-	do {
-		divisor = divisor + h;
-		width = w / divisor;
-	} while (width !== parseInt(width));
-
-	return width;
-}
-
-calculateRatio(1024, 748);
-
 /*
 Bonfire: Smallest Common Multiple
 Find the smallest common multiple of the provided parameters that can be evenly divided by both,
