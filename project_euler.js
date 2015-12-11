@@ -1,4 +1,36 @@
 /*
+Summation of primes
+Problem 10
+The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+Find the sum of all the primes below two million.
+*/
+
+function sumPrimes(threshold) {
+	function getPrimes(threshold) {
+		var primes = [2], i;
+		for (i = 2; i < threshold; i++) {
+			if (i % 2 !== 0 && isPrime(i)) primes.push(i);
+		}
+		return primes;
+	}
+	function isPrime(num) {
+		var i;
+		for (i = 2; i < num; i++) {
+			if (num % i === 0) return false;
+		}
+		return num > 1;
+	}
+	var primes = getPrimes(threshold);
+	return primes.reduce(function(a, b) {
+		return a + b;
+	});
+}
+
+// 142913828922
+
+
+/*
 Smallest multiple
 Problem 5
 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
