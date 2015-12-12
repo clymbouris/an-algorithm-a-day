@@ -1,4 +1,29 @@
 /*
+Sum square difference
+Problem 6
+The sum of the squares of the first ten natural numbers is,
+
+12 + 22 + ... + 102 = 385
+The square of the sum of the first ten natural numbers is,
+
+(1 + 2 + ... + 10)2 = 552 = 3025
+Hence the difference between the sum of the squares of the first ten natural numbers
+and the square of the sum is 3025 − 385 = 2640.
+
+Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+*/
+
+function sumSqDiff(num) {
+	var sumOfSq = 0, sqOfSum = 0, i;
+	for (i = 1; i <= num; i++) {
+		sumOfSq = sumOfSq + (i * i);
+		sqOfSum = sqOfSum + i;
+	}
+	sqOfSum = sqOfSum * sqOfSum;
+	return sqOfSum - sumOfSq;
+}
+
+/*
 Summation of primes
 Problem 10
 The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
