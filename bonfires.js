@@ -1,4 +1,42 @@
 /*
+Bonfire: Make a Person
+Fill in the object constructor with the methods specified in the tests.
+
+Those methods are getFirstName(), getLastName(), getFullName(), setFirstName(first),
+setLastName(last), and setFullName(firstAndLast).
+
+All functions that take an argument have an arity of 1, and the argument will be a string.
+
+These methods must be the only available means for interacting with the object.
+*/
+
+function Person(firstLast) {
+	this.getFullName = function() {
+		return firstLast;
+	};
+	this.getFirstName = function() {
+		return firstLast.split(' ')[0];
+	};
+	this.getLastName = function() {
+		return firstLast.split(' ')[1];
+	};
+	this.setFullName = function(full) {
+		firstLast = full;
+	};
+	this.setFirstName = function(first) {
+		var full = firstLast.split(' ');
+		full[0] = first;
+		firstLast = full.join(' ');
+	};
+	this.setLastName = function(last) {
+		var full = firstLast.split(' ');
+		full[1] = last;
+		firstLast = full.join(' ');
+	};
+}
+
+
+/*
 Bonfire: Smallest Common Multiple
 Find the smallest common multiple of the provided parameters that can be evenly divided by both,
 as well as by all sequential numbers in the range between these parameters.
