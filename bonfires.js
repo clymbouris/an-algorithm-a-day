@@ -1,4 +1,29 @@
 /*
+Bonfire: Map the Debris
+Return a new array that transforms the element's average altitude into their orbital periods.
+
+The array will contain objects in the format {name: 'name', avgAlt: avgAlt}.
+
+The values should be rounded to the nearest whole number. The body being orbited is Earth.
+
+The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418
+
+Kepler's 3rd law of Planetary Motion
+https://en.wikipedia.org/wiki/Kepler%27s_laws_of_planetary_motion
+*/
+
+function orbitalPeriod(arr) {
+	var GM = 398600.4418, earthRadius = 6367.4447, orbitals = [], kepler3;
+	arr.forEach(function(obj) {
+		kepler3 = Math.sqrt(((4 * Math.pow(Math.PI, 2)) / GM) * Math.pow(obj.avgAlt + earthRadius, 3));
+		orbitals.push({ name: obj.name, orbitalPeriod: Math.round(kepler3, 0) });
+	});
+	return orbitals;
+}
+
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
+
+/*
 Bonfire: Make a Person
 Fill in the object constructor with the methods specified in the tests.
 
