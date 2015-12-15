@@ -1,3 +1,39 @@
+
+/*
+Factorial digit sum
+Problem 20
+n! means n × (n − 1) × ... × 3 × 2 × 1
+
+For example, 10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,
+and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
+
+Find the sum of the digits in the number 100!
+
+NOTE: Unfortunately this can't work here because of a limitation in numbers in JavaScript. The number
+returned from getFactorial function will be written in scientific notation so can't get that kind of precision
+
+*/
+
+function factDigitSum(num) {
+
+	function getFactorial(num) {
+		var i, product = 1;
+		for (i = num; i > 0; i--) {
+			product = product * i;
+		}
+		return product;
+	}
+	var product = getFactorial(num);
+	return product.toString().split('').reduce(function(a, b) {
+		return parseFloat(a) + parseFloat(b);
+	});
+}
+
+factDigitSum(10); // 27
+factDigitSum(21);
+factDigitSum(100); // can't get answer
+
+
 /*
 Largest palindrome product
 Problem 4
