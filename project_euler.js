@@ -1,4 +1,39 @@
 /*
+Largest palindrome product
+Problem 4
+A palindromic number reads the same both ways.
+
+The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+Find the largest palindrome made from the product of two 3-digit numbers.
+*/
+
+function largestPalindrome() {
+
+	function isPalindrome(num) {
+		var arr = num.toString().split('');
+		var len = (arr.length - arr.length % 2) / 2,i;
+		for (i = 0; i < len; i++) {
+			if (!(arr[i] === arr[arr.length - 1 - i])) {
+				return false;
+			}
+		}
+		return true;
+	}
+	// Sure not the quickest way to do this as I'm comparing all 3-digit number products in existence!
+	var i, top = 0;
+	for (i = 999; i > 99; i--) {
+		var j;
+		for (j = 999; j > 99; j--) {
+			if (isPalindrome(i * j)) {
+				top = (top >= i * j) ? top : i * j;
+			}
+		}
+	}
+	return top;
+}
+
+/*
 10001st prime
 Problem 7
 By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
