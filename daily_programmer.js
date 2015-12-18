@@ -1,4 +1,67 @@
 /*
+[2015-10-26] Challenge #238 [Easy] Consonants and Vowels
+submitted 1 month ago by jnazario2 0
+Description
+
+You were hired to create words for a new language. However, your boss wants these words to follow a strict pattern
+of consonants and vowels. You are bad at creating words by yourself, so you decide it would be best to randomly generate them.
+Your task is to create a program that generates a random word given a pattern of consonants (c) and vowels (v).
+Input Description
+
+Any string of the letters c and v, uppercase or lowercase.
+Output Description
+
+A random lowercase string of letters in which consonants (bcdfghjklmnpqrstvwxyz) occupy the given 'c' indices
+and vowels (aeiou) occupy the given 'v' indices.
+Sample Inputs
+
+cvcvcc
+
+CcvV
+
+cvcvcvcvcvcvcvcvcvcv
+Sample Outputs
+
+litunn
+
+ytie
+
+poxuyusovevivikutire
+Bonus
+
+Error handling: make your program react when a user inputs a pattern that doesn't consist of only c's and v's.
+When the user inputs a capital C or V, capitalize the letter in that index of the output.
+*/
+
+function createWord(str) {
+	var result = [],
+	len = str.length, i;
+	for (i = 0; i < len; i++) {
+		if (str[i] !== 'c' && str[i] !== 'C' && str[i] !== 'v' && str[i] !== 'V') {
+			result = 'Input should consist only of "v" for vowels and "c" for consonants';
+			return result;
+		}
+		result.push(getWord(str[i]));
+	}
+	function getWord(char) {
+		var consonants = 'bcdfghjklmnpqrstvwxyz',
+		vowels = 'aeiou', selection;
+
+		if (char === 'c' || char === 'C') {
+			var index = Math.floor(Math.random() * consonants.length),
+			selection = consonants;
+		}
+		else if (char === 'v' || char === 'V') {
+			var index = Math.floor(Math.random() * vowels.length),
+			selection = vowels;
+		}
+		return (char === char.toUpperCase()) ? selection[index].toUpperCase() : selection[index];
+	}
+	return result.join('');
+}
+
+
+/*
 [2015-11-02] Challenge #239 [Easy] A Game of Threes
 submitted 1 month ago by Blackshell2 0
 Background
