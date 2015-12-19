@@ -1,3 +1,66 @@
+/*
+Special Pythagorean triplet
+Problem 9
+A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+
+a2 + b2 = c2
+For example, 3(2) + 4(2) = 9 + 16 = 25 = 5(2).
+
+There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+Find the product abc.
+
+http://stackoverflow.com/questions/16143499/pythagorean-triples-formula-in-javascript-project-euler-prob-9
+
+Pythagoras
+a2 + b2 = c2
+
+Also we have
+a + b + c = 1000
+
+algebra, rearrange c to left
+c = 1000 - (a + b)
+
+insert c back in pythagoras
+a2 + b2 = (1000 - (a + b))2
+
+multiply out
+a2 + b2 = 1000000 - 2000 * (a + b) + (a + b)2
+
+multiply out
+a2 + b2 = 1000000 - 2000 * (a + b) + a2 + 2 * a * b + b2
+
+rearrange a2 + b2 to simplify
+0 = 1000000 - 2000 * (a + b) + 2 * a * b
+
+rearrange unknowns to left
+2000 * (a + b) - 2 * a * b = 1000000
+
+simplify, / 2
+1000 * (a + b) - a * b = 500000
+
+factorsize
+a(1000 - b) + 1000 * b = 500000
+
+rearrange
+a(1000 - b) = 500000 - 1000 * b
+
+a = (500000 - 1000 * b) / (1000 - b)
+*/
+
+function PythagoreanProduct(sum) {
+	var a, b, c;
+	for (b = 1; b < sum; b++) {
+		a = (500000 - 1000 * b) / (1000 - b);
+		if (a === parseInt(a)) {
+			c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+			console.log('a: ' + a, 'b: ' + b, 'c: ' + c);
+			break;
+		}
+	}
+	return a * b * c;
+}
+
+
 
 /*
 Factorial digit sum
