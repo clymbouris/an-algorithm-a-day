@@ -1,4 +1,22 @@
 /*
+Power digit sum
+Problem 16
+2^15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+
+What is the sum of the digits of the number 2^1000?
+*/
+
+function sumDigits(num, pow) {
+	var ans = Math.pow(num, pow).toString().split('');
+    return ans.reduce((current, next) => {
+    	return parseInt(current) + parseInt(next);
+    });
+}
+
+sumDigits(2, 15); // 26
+sumDigits(2, 1000); // JS can't handle such a big number but logic seems correct
+
+/*
 Special Pythagorean triplet
 Problem 9
 A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
@@ -38,7 +56,7 @@ rearrange unknowns to left
 simplify, / 2
 1000 * (a + b) - a * b = 500000
 
-factorsize
+factorize
 a(1000 - b) + 1000 * b = 500000
 
 rearrange
