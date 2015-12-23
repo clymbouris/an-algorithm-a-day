@@ -1,4 +1,28 @@
 /*
+[2015-12-23] Challenge # 246 [Intermediate] Letter Splits
+submitted 6 hours ago by fvandepitte
+This problem is a simplified version of Text Segmentation in Natural Language Processing.
+Description
+Given a positive integer, return all the ways that the integer can be represented by letters using the mapping:
+1 -> A
+2 -> B
+3 -> C
+...
+25 -> Y
+26 -> Z
+For example, the integer 1234 can be represented by the words :
+ABCD -> [1,2,3,4]
+AWD -> [1,23,4]
+LCD -> [12,3,4]
+Input description
+A positive integer:
+Output description
+All possible ways the number can be represented once per line.
+*/
+
+
+
+/*
 Description
 We are going to calculate how long we can light our X-mass lights with 1 battery.
 First off all some quick rules in the electronics:
@@ -66,7 +90,7 @@ and the capacity and the time the leds need to be lit.
 
 The units are in voltage V, current mA (divide by 1000 for A), voltage V, capacity (mAh), timespan h
 input
-1.7 20 9 1200 20
+1.7 20 9 1200 20 (ledV, ledmA, batteryV, batteryCapacity, hours)
 Output
 Resistor: 8.333 Ohms
 Scheme:
